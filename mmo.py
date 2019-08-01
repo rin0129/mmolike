@@ -7,6 +7,7 @@ from xml.etree import ElementTree
 import discord
 from discord.ext import commands
 import requests
+import os
 
 MONSTER_NUM = 50
 
