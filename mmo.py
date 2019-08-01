@@ -10,7 +10,7 @@ import requests
 
 MONSTER_NUM = 50
 
-f = open('/home/centos/discord_bot/mmo/monsters.json', 'r')
+f = open('monsters.json', 'r')
 monsters = json.load(f)
 f = open('training.json', 'r')
 training_set = json.load(f)
