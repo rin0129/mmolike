@@ -370,11 +370,36 @@ async def q(ctx):
         
 @bot.command(pass_context=True, description='クイズに解答し、正解すると経験値がもらえるぞ。')
 async def expja(ctx):
+    """トレーニングをする"""
     user = ctx.message.author
     if user.bot: return
-    exp = math.ceil(get_player_level+10000000(user.id) / 1000)
-    comment = experiment(user.id, exp)
-    await bot.say("経験値が付与されははずだよ！".format(exp, comment))
+    resp = requests.get(url='http://24th.jp/test/quiz/api_quiz.php')
+    quiz_xml = ElementTree.fromstring(resp.text.encode('utf-8'))[1]
+    quiz_set = [quiz_xml[2].text, quiz_xml[3].text, quiz_xml[4].text, quiz_xml[5].text]
+    random.shuffle(quiz_set)
+    await bot.say("Q. {}\n 1. {}\n 2. {}\n 3. {}\n 4. {}".format(quiz_xml[1].text, *quiz_set))
+    answer_num = quiz_set.index(quiz_xml[2].text) + 1
+    exp = math.ceil(get_player_level+10000000(user.id) / 10)
+    guess = await bot.wait_for_message(timeout=10.0, author=user)
+    if guess is None:
+        await bot.say('時間切れだ。正解は「{}」だ。'.format(quiz_xml[2].text))
+        return
+    if guess.content.isdigit() and int(guess.content) == answer_num:
+        comment = experiment(user.id, exp)
+        if random.random() < 0.005:
+            comment += "\n`エリクサー`を手に入れた！"
+            obtain_an_item(user.id, 1)
+        if random.random() < 0.1:
+            comment += "\n`ファイアボールの書`を手に入れた！"
+            obtain_an_item(user.id, 2)
+        if random.random() < 0.1:
+            comment += "\n`祈りの書`を手に入れた！"
+            obtain_an_item(user.id, 3)
+        conn.commit()
+        await bot.say('正解だ！{}の経験値を得た。\n{}'.format(exp, comment))
+    else:
+        await bot.say('残念！正解は「{}」だ。'.format(quiz_xml[2].text))
+        
         
 
 
