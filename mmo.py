@@ -369,7 +369,7 @@ async def q(ctx):
         await bot.say('残念！正解は「{}」だ。'.format(quiz_xml[2].text))
         
 @bot.command(pass_context=True, description='クイズに解答し、正解すると経験値がもらえるぞ。')
-async def q(ctx):
+async def qqq(ctx):
     """トレーニングをする"""
     user = ctx.message.author
     if user.bot: return
