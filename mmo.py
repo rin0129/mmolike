@@ -368,8 +368,8 @@ async def q(ctx):
     else:
         await bot.say('残念！正解は「{}」だ。'.format(quiz_xml[2].text))
         
-@bot.command(pass_context=True, description='クイズに解答し、正解すると経験値がもらえるぞ。。')
-async def expja(ctx):
+@bot.command(pass_context=True, description='クイズに解答し、正解すると経験値がもらえるぞ。')
+async def q(ctx):
     """トレーニングをする"""
     user = ctx.message.author
     if user.bot: return
@@ -379,7 +379,7 @@ async def expja(ctx):
     random.shuffle(quiz_set)
     await bot.say("Q. {}\n 1. {}\n 2. {}\n 3. {}\n 4. {}".format(quiz_xml[1].text, *quiz_set))
     answer_num = quiz_set.index(quiz_xml[2].text) + 1
-    exp = math.ceil(get_player_level+10000000(user.id) / 10)
+    exp = math.ceil(get_player_level(user.id) / 1000)
     guess = await bot.wait_for_message(timeout=10.0, author=user)
     if guess is None:
         await bot.say('時間切れだ。正解は「{}」だ。'.format(quiz_xml[2].text))
