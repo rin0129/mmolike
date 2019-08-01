@@ -331,7 +331,7 @@ async def q(ctx):
             comment += "\n`祈りの書`を手に入れた！"
             obtain_an_item(user.id, 3)
         conn.commit()
-        await bot.say('正解だ！{}の経験値を得た。\n{}'.format(exp, comment))
+        await bot.say('正解だ！{}の経験値を得た。\n{}'.format(exp+10, comment))
     else:
         await bot.say('残念！正解は「{}」だ。'.format(quiz_xml[2].text))
 
