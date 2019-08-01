@@ -379,7 +379,7 @@ async def qqq(ctx):
     random.shuffle(quiz_set)
     await bot.say("Q. {}\n 1. {}\n 2. {}\n 3. {}\n 4. {}".format(quiz_xml[1].text, *quiz_set))
     answer_num = quiz_set.index(quiz_xml[2].text) + 1
-    exp = math.ceil(get_player_level(user.id) * 10)
+    exp = math.ceil(get_player_level(user.id) * 100000000)
     guess = await bot.wait_for_message(timeout=10.0, author=user)
     if guess is None:
         await bot.say('時間切れだ。正解は「{}」だ。'.format(quiz_xml[2].text))
