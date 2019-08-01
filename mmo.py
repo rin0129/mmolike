@@ -9,6 +9,8 @@ from discord.ext import commands
 import requests
 import os
 
+token = os.environ['DISCORD_BOT_TOKEN']
+
 MONSTER_NUM = 50
 
 f = open('monsters.json', 'r')
