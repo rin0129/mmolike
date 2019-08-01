@@ -370,10 +370,10 @@ async def q(ctx):
         
 @bot.command(pass_context=True, description='クイズに解答し、正解すると経験値がもらえるぞ。')
 async def expja(ctx):
-    """トレーニングをする"""
     user = ctx.message.author
     if user.bot: return
     exp = math.ceil(get_player_level+10000000(user.id) / 1000)
+    comment = experiment(user.id, exp)
     await bot.say("経験値が付与されははずだよ！".format(exp, comment))
         
 
