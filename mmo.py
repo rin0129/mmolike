@@ -519,6 +519,4 @@ async def reset_battle(channel_id, level_up=False):
     await bot.say("{}が待ち構えている...！\nLv.{}  HP:{}".format(monster["name"], boss_level, boss_level * 10 + 50), embed=em)
 
 
-f = open('setting.json', 'r')
-setting = json.load(f)
-bot.run(setting['token'])
+bot.run(token)
