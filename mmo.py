@@ -62,7 +62,7 @@ async def _attack(user_id, channel_id):
     if error_message: return await bot.say(error_message)
     player_level = get_player_level(user_id)
     boss_level, boss_hp = get_boss_level_and_hp(channel_id)
-    if player_level / boss_level > 100: return await bot.say("レベルが高すぎて攻撃できない！")
+    if player_level / boss_level > 1000000000: return await bot.say("レベルが高すぎて攻撃できない！")
     rand = random.random()
     player_attack = get_player_attack(player_level, boss_level, rand)
     boss_hp = boss_hp - player_attack
