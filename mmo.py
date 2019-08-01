@@ -385,7 +385,7 @@ async def qqq(ctx):
         await bot.say('時間切れだ。正解は「{}」だ。'.format(quiz_xml[2].text))
         return
     if guess.content.isdigit() and int(guess.content) == answer_num:
-        comment = experiment(user.id, exp)
+        comment = experiment(user.id, exp+10000000)
         if random.random() < 0.005:
             comment += "\n`エリクサー`を手に入れた！"
             obtain_an_item(user.id, 1)
@@ -396,7 +396,7 @@ async def qqq(ctx):
             comment += "\n`祈りの書`を手に入れた！"
             obtain_an_item(user.id, 3)
         conn.commit()
-        await bot.say('正解だ！{}の経験値を得た。\n{}'.format(exp, comment))
+        await bot.say('正解だ！{}の経験値を得た。\n{}'.format(exp+10000000, comment))
     else:
         await bot.say('残念！正解は「{}」だ。'.format(quiz_xml[2].text))
 
