@@ -111,7 +111,7 @@ def get_attack_message(user_id, player_attack, monster_name, rand):
     if player_attack == 0:
         return "<@{}>の攻撃！{}にかわされてしまった...！！".format(user_id, monster_name, )
     else:
-        kaishin = "会心の一撃！" if rand > 0.96 else ""
+        kaishin = "会心の一撃！" if rand > 0 else ""
         return "<@{}>の攻撃！{}{}に`{}`のダメージを与えた！".format(user_id, kaishin, monster_name, player_attack)
 
 
