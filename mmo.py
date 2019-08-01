@@ -233,6 +233,39 @@ async def status(ctx):
                 player_exp, (player_level + 1) ** 2 - player_exp, battle_field, item_comment, rank
             )
     await bot.say(status_comment)
+   
+@bot.command(pass_context=True, description='自分のステータスを確認する')
+async def st(ctx):
+    """自分のステータスを確認する"""
+    if ctx.message.author.bot: return
+    user_id = ctx.message.author.id
+    player_exp = get_player_exp(user_id)
+    in_battle = conn.execute("SELECT channel_id, player_hp FROM in_battle WHERE user_id=?", (user_id,)).fetchone()
+    rank = conn.execute("""SELECT 
+            (SELECT Count(0) FROM player WHERE player.experience > player1.experience) + 1 AS rank 
+             FROM player AS player1 WHERE user_id=?""", (user_id,)).fetchone()[0]
+    item_comment = ""
+    for my_item in conn.execute("SELECT item_id FROM item WHERE user_id=?", (user_id,)).fetchall():
+        if my_item[0] == -10:
+            item_comment += "【運営の証】を持っている。\n"
+        if my_item[0] == -9:
+            item_comment += "【サポーターの証】を持っている。\n"
+    player_level = int(math.sqrt(player_exp))
+    status_comment = "<@{0}>のステータス\nLv: {1}\nHP: {2} \n攻撃力: {3}\nEXP: {4}\n次のレベルまで {5}exp\n{6}\nプレイヤーランクは{7}位だ！".format(
+        user_id, player_level, player_level * 5 + 50, player_level * 2 + 10,
+        player_exp, (player_level + 1) ** 2 - player_exp, item_comment, rank
+    )
+    if in_battle:
+        battle_channel = bot.get_channel(str(in_battle[0]))
+        if not battle_channel:  # if deleted the battle_channel
+            conn.execute("DELETE FROM in_battle WHERE channel_id=?", (str(in_battle[0]),))
+        else:
+            battle_field = "{0.server.name}の#{0.name}".format(battle_channel) if battle_channel.name else "個人チャット"
+            status_comment = "<@{}>のステータス\nLv: {}\nHP: {} / {}\n攻撃力: {}\nEXP: {}\n次のレベルまで {}exp\n\n{}で戦闘中！\n{}\nプレイヤーランクは{}位だ！".format(
+                user_id, player_level, in_battle[1], player_level * 5 + 50, player_level * 2 + 10,
+                player_exp, (player_level + 1) ** 2 - player_exp, battle_field, item_comment, rank
+            )
+    await bot.say(status_comment)
 
 
 @bot.command(pass_context=True, description='チャンネルのバトルの状態を確認する')
