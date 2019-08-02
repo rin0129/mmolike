@@ -158,7 +158,7 @@ def boss_attack_process(user_id, player_hp, player_level, monster_name, boss_lev
     boss_attack = get_boss_attack(boss_level)
     player_hp = player_hp - boss_attack
     if boss_attack == 0:
-        return "{0}の攻撃！<@{1}>は華麗にかわした！\n - <@{1}>のHP:`{2}`/{3}".format(
+        return "{0}の攻撃！<@{1}>は華麗にかわした！！\n - <@{1}>のHP:`{2}`/{3}".format(
             monster_name, user_id, player_hp, player_level * 5 + 50)
     elif player_hp <= 0:
         conn.execute("UPDATE in_battle SET player_hp=0 WHERE user_id=?", (user_id,))
