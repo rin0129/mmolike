@@ -1,5 +1,5 @@
 import random
-import sqlite3
+import psycopg2
 import math
 import json
 from xml.etree import ElementTree
@@ -17,7 +17,7 @@ f = open('monsters.json', 'r')
 monsters = json.load(f)
 f = open('training.json', 'r')
 training_set = json.load(f)
-conn = sqlite3.connect("mmo.db")
+conn = psycopg2.connect(os.environ.get('DATABASE_URL'))
 bot = commands.Bot(command_prefix='!!', description='MMOくんはみんなでボスを倒して行くRPGです。')
 
 
