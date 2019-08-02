@@ -1,1 +1,1 @@
-discordbot: python mmo.py
+worker: python mmo.py
