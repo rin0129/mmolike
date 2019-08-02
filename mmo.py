@@ -18,7 +18,7 @@ f = open('monsters.json', 'r')
 monsters = json.load(f)
 f = open('training.json', 'r')
 training_set = json.load(f)
-conn = sqlite3.connect('mmo.db')
+conn = psycopg2.connect(os.environ['DATABASE_URL'])
 bot = commands.Bot(command_prefix='!!', description='MMOくんはみんなでボスを倒して行くRPGです。')
 
 
