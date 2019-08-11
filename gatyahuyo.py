@@ -16,7 +16,7 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     global get
-    if message.content == "ccct"
+    if message.content == "ccct":
         get = message.author
         if message.author.bot:
             return
