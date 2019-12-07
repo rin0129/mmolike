@@ -1,1 +1,1 @@
-worker: python gatyahuyo.py
+worker: python mmo.py
