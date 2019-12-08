@@ -20,6 +20,9 @@ training_set = json.load(f)
 con = psycopg2.connect(os.environ.get("DATABASE_URL"))
 bot = commands.Bot(command_prefix='!!', description='MMOくんはみんなでボスを倒して行くRPGです。')
 
+def get_connection():
+    dsn = os.environ.get('DATABASE_URL')
+    return psycopg2.connect(dsn)
 
 @bot.event
 async def on_ready():
@@ -33,6 +36,7 @@ async def on_ready():
 @bot.event
 async def on_server_remove(server):
     for channel in server.channels:
+        conn = con.cursor()
         conn.execute("DELETE FROM in_battle WHERE channel_id=?", (channel.id,))
         conn.execute("DELETE FROM channel_status WHERE channel_id=?", (channel.id,))
     conn.commit()
@@ -46,6 +50,7 @@ special_monster = {}
 @bot.command(pass_context=True, description='チャンネル内の敵に攻撃します。敵の反撃を受けます。')
 async def attack(ctx):
     """攻撃する"""
+    conn = con.cursor()
     if ctx.message.author.bot: return
     channel_id = ctx.message.channel.id
     if channel_id in channel_in_transaction:
@@ -59,6 +64,7 @@ async def attack(ctx):
 
 
 async def _attack(user_id, channel_id):
+    conn = con.cursor()
     player_hp, error_message = into_battle(user_id, channel_id)
     if error_message: return await bot.say(error_message)
     player_level = get_player_level(user_id)
@@ -84,6 +90,7 @@ async def _attack(user_id, channel_id):
 
 
 def into_battle(user_id, channel_id):
+    conn = con.cursor()
     error_message = ""
     player_level = get_player_level(user_id)
     in_battle = conn.execute("SELECT channel_id, player_hp FROM in_battle WHERE user_id=?", (user_id,)).fetchone()
@@ -117,6 +124,7 @@ def get_attack_message(user_id, player_attack, monster_name, rand):
 
 
 def win_process(channel_id, boss_level, monster_name):
+    conn = con.cursor()
     battle_members = [m for m in
                       conn.execute("SELECT * FROM in_battle WHERE channel_id=?", (channel_id,)).fetchall()]
     level_up_comments = []
@@ -205,6 +213,7 @@ def get_boss_attack(boss_level):
 @bot.command(pass_context=True, description='自分のステータスを確認する')
 async def status(ctx):
     """自分のステータスを確認する"""
+    conn = con.cursor()
     if ctx.message.author.bot: return
     user_id = ctx.message.author.id
     player_exp = get_player_exp(user_id)
@@ -238,6 +247,7 @@ async def status(ctx):
 @bot.command(pass_context=True, description='自分のステータスを確認する')
 async def st(ctx):
     """自分のステータスを確認する"""
+    conn = con.cursor()
     if ctx.message.author.bot: return
     user_id = ctx.message.author.id
     player_exp = get_player_exp(user_id)
@@ -272,6 +282,7 @@ async def st(ctx):
 @bot.command(pass_context=True, description='チャンネルのバトルの状態を確認する')
 async def inquiry(ctx):
     """チャンネルのバトルの状態を確認する"""
+    conn = con.cursor()
     channel_id = ctx.message.channel.id
     boss_level, boss_hp = get_boss_level_and_hp(channel_id)
     if channel_id in special_monster:
@@ -301,6 +312,7 @@ async def inquiry(ctx):
 @bot.command(pass_context=True, description='戦いをやり直す')
 async def reset(ctx):
     """戦いをやり直す"""
+    conn = con.cursor()
     if conn.execute("SELECT 0 FROM in_battle WHERE channel_id=?", (ctx.message.channel.id,)).fetchone():
         await reset_battle(ctx.message.channel.id, False)
     else:
@@ -310,6 +322,7 @@ async def reset(ctx):
 @bot.command(pass_context=True, description='四字熟語の読み方をひらがなで入力し、正解すると経験値がもらえるぞ。')
 async def t(ctx):
     """トレーニングをする"""
+    conn = con.cursor()
     user = ctx.message.author
     if user.bot: return
     q_id = random.randint(0, 619)
@@ -340,6 +353,7 @@ async def t(ctx):
 @bot.command(pass_context=True, description='クイズに解答し、正解すると経験値がもらえるぞ。')
 async def q(ctx):
     """トレーニングをする"""
+    conn = con.cursor()
     user = ctx.message.author
     if user.bot: return
     resp = requests.get(url='http://24th.jp/test/quiz/api_quiz.php')
@@ -372,6 +386,7 @@ async def q(ctx):
 @bot.command(pass_context=True, description='クイズに解答し、正解すると経験値がもらえるぞ。')
 async def qqq(ctx):
     """トレーニングをする"""
+    conn = con.cursor()
     user = ctx.message.author
     if user.bot: return
     resp = requests.get(url='http://24th.jp/test/quiz/api_quiz.php')
@@ -416,6 +431,7 @@ item_description = """アイテムの説明
 @bot.command(pass_context=True, description=item_description)
 async def item(ctx, item_name=""):
     """アイテムを使う"""
+    conn = con.cursor()
     if ctx.message.author.bot: return
     channel_id = ctx.message.channel.id
     if channel_id in channel_in_transaction:
@@ -429,6 +445,7 @@ async def item(ctx, item_name=""):
 
 
 async def _item(user_id, channel_id, item_name, mentions):
+    conn = con.cursor()
     if not item_name:
         my_items = conn.execute("SELECT item_id, count FROM item WHERE user_id=? ORDER BY item_id",
                                 (user_id,)).fetchall()
@@ -443,6 +460,7 @@ async def _item(user_id, channel_id, item_name, mentions):
 
 
 def elixir(user_id, channel_id):
+    conn = con.cursor()
     if not consume_an_item(user_id, 1):
         return "<@{}>はエリクサーを持っていない！".format(user_id)
     in_battles = conn.execute(
@@ -455,6 +473,7 @@ def elixir(user_id, channel_id):
 
 
 async def fireball(user_id, channel_id):
+    conn = con.cursor()
     player_hp, error_message = into_battle(user_id, channel_id)
     if error_message: return await bot.say(error_message)
     if not consume_an_item(user_id, 2):
@@ -478,6 +497,7 @@ async def fireball(user_id, channel_id):
 
 
 def pray(user_id, channel_id, mentions):
+    conn = con.cursor()
     if not mentions:
         return "祈りの書は仲間を復活させます。祈る相手を指定して使います。\n例)!!item 祈りの書 @ユーザー名".format(user_id)
     prayed_user_id = mentions[0].id
@@ -498,6 +518,7 @@ def pray(user_id, channel_id, mentions):
 @bot.command(description='上位10サーバーのランキングを表示する')
 async def ranking():
     """上位10サーバーのランキングを表示する"""
+    conn = con.cursor()
     channels = conn.execute("SELECT channel_id, boss_level FROM channel_status ORDER BY boss_level DESC").fetchall()
     servers = {}
     for channel in channels:
@@ -513,6 +534,7 @@ async def ranking():
 
 
 def get_player_exp(user_id):
+    conn = con.cursor()
     player = conn.execute("SELECT experience FROM player WHERE user_id=?", (user_id,)).fetchone()
     if not player:
         conn.execute("INSERT INTO player values( ?, ? )", (user_id, 1))
@@ -521,6 +543,7 @@ def get_player_exp(user_id):
 
 
 def get_player_level(user_id, player_exp=None):
+    conn = con.cursor()
     if player_exp:
         return int(math.sqrt(player_exp))
     player = conn.execute("SELECT experience FROM player WHERE user_id=?", (user_id,)).fetchone()
@@ -531,6 +554,7 @@ def get_player_level(user_id, player_exp=None):
 
 
 def get_boss_level_and_hp(channel_id):
+    conn = con.cursor()
     channel_status = conn.execute("SELECT boss_level, boss_hp FROM channel_status WHERE channel_id=?",
                                   (channel_id,)).fetchone()
     if not channel_status:
@@ -540,6 +564,7 @@ def get_boss_level_and_hp(channel_id):
 
 
 def experiment(user_id, exp):
+    conn = con.cursor()
     player_exp = get_player_exp(user_id)
     next_exp = player_exp + exp
     current_level = int(math.sqrt(player_exp))
@@ -551,6 +576,7 @@ def experiment(user_id, exp):
 
 
 def obtain_an_item(user_id, item_id):
+    conn = con.cursor()
     item_count = conn.execute("SELECT count FROM item WHERE user_id=? and item_id=?", (user_id, item_id)).fetchone()
     if item_count:
         conn.execute("UPDATE item SET count=? WHERE user_id=? and item_id=?", (item_count[0] + 1, user_id, item_id,))
@@ -559,6 +585,7 @@ def obtain_an_item(user_id, item_id):
 
 
 def consume_an_item(user_id, item_id):
+    conn = con.cursor()
     current_count = conn.execute("SELECT count FROM item WHERE user_id=? and item_id=?", (user_id, item_id)).fetchone()
     if not current_count:
         return False
