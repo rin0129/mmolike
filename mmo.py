@@ -27,7 +27,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    return await bot.change_presence(game=discord.Game(name="今はファイルを起動してないので動きません")
+    return await bot.change_presence(game=discord.Game(name="今はデータがいつもと違います"))
 
 
 @bot.event
@@ -36,6 +36,7 @@ async def on_server_remove(server):
         conn.execute("DELETE FROM in_battle WHERE channel_id=?", (channel.id,))
         conn.execute("DELETE FROM channel_status WHERE channel_id=?", (channel.id,))
     conn.commit()
+
 
 
 channel_in_transaction = []
