@@ -15,7 +15,7 @@ async def on_ready():
     await achannel.send("起動")
     while True:
         await asyncio.sleep(240)
-        await acchannel.send("::i i <@564407708770631683> 300")
+        await achannel.send("::i i <@564407708770631683> 300")
 
 @client.event
 async def on_message(message):
