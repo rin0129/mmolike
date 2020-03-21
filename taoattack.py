@@ -11,22 +11,14 @@ id = 659936594559631370
 
 @client.event
 async def on_ready():
-    clientt_channel = client.get_channel(id)
-    await clientt_channel.send("起動")
+    achannel = client.get_channel(id)
+    await achannel.send("起動")
     while True:
         await asyncio.sleep(240)
-        client.t_ch = client.get_channel(id)
-        await clientt_channel.send("::i i <@564407708770631683> 300")
+        await acchannel.send("::i i <@564407708770631683> 300")
 
 @client.event
 async def on_message(message):
-    # if message.channel.id == 659936589685981194:
-    #     if message.author.id == 526620171658330112:
-    #         await asyncio.sleep(4)
-    #         emoji = '0⃣'
-    #         await message.add_reaction(emoji)
-    #         return
-
     if message.author.id == 421971957081309194:
         if message.content == "!res":
             print("コマンド再起動")
@@ -40,10 +32,6 @@ async def on_message(message):
         await message.channel.send(f"{sayd}")
         await message.delete()
         return
-
-    # if message.author.id == 421971957081309194:
-    #     if message.content == "s":
-    #         await message.channel.send("::atk")
 
     if message.content == "botst":
         await message.channel.send("::st")
