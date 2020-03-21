@@ -11,11 +11,12 @@ id = 659936594559631370
 
 @client.event
 async def on_ready():
-    channel = client.get_channel(id)
-    await channel.send("起動")
+    clientt_channel = client.get_channel(id)
+    await clientt_channel.send("起動")
     while True:
         await asyncio.sleep(240)
-        await channel.send("::i i <@564407708770631683> 300")
+        client.t_ch = client.get_channel(id)
+        await client.t_ch.send("::i i <@564407708770631683> 300")
 
 @client.event
 async def on_message(message):
