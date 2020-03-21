@@ -1,20 +1,20 @@
+import os
 import discord
 import asyncio
-import os
-import json
 import re
 
 client = discord.Client()
-token = os.environ['DISCORD_BOT_TOKEN']
 
+token = os.environ['DISCORD_BOT_TOKEN']
 id = 659936594559631370
+    
 
 @client.event
 async def on_ready():
     clientt_channel = client.get_channel(id)
-    await clientt_channel.send("起動")
+    await clientt_channel.send("::atk 起動")
     while True:
-        await asyncio.sleep(240)
+        await asyncio.sleep(60)
         client.t_ch = client.get_channel(id)
         await client.t_ch.send("::i i <@564407708770631683> 300")
 
