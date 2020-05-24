@@ -17,7 +17,6 @@ from discord.ext import commands
 from discord import Embed, NotFound, Forbidden
 import requests
 import asyncio
-from discord.ext import tasks
 
 MONSTER_NUM = 50
 token = os.environ['DISCORD_BOT_TOKEN']
