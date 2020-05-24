@@ -14,6 +14,7 @@ from xml.etree import ElementTree
 
 import discord
 from discord.ext import commands
+from discord.ext import tasks
 from discord import Embed, NotFound, Forbidden
 import requests
 import asyncio
