@@ -11,7 +11,6 @@ import ast
 import datetime
 from datetime import datetime
 from xml.etree import ElementTree
-
 import discord
 from discord.ext import commands
 from discord.ext import tasks
@@ -41,7 +40,6 @@ ban_member = []
 login_zumi = []
 all_commands_user, all_commands_channel = [], []
 kidou.append("true")
-
 
 @bot.event
 async def on_ready():
