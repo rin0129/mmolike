@@ -9,7 +9,6 @@ import psycopg2
 import math
 import json
 import os
-import psutil
 import sys
 import re
 import time
@@ -67,10 +66,6 @@ async def on_ready():
     print("{}鯖".format(len(bot.guilds)))
     print("{}".format(len(set(bot.get_all_members()))))
     print('------')
-    mem = psutil.virtual_memory()
-    print(mem.percent)
-    cpu = psutil.cpu_percent(interval=1)
-    print(cpu)
     conn = psycopg2.connect(os.environ.get('DATABASE_URL'))
     c = conn.cursor()
     c.execute("select count(*) from player")
