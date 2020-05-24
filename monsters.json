@@ -1,0 +1,359 @@
+[
+  {
+    "name": "スライム",
+    "hp_co": 1,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/664086457786433556/1578345126360.png"
+  },
+  {
+    "name": "バッド",
+    "hp_co": 2,
+    "dmg_co": 1.0,
+    "quote": "バサッバサッ...",
+    "img": "https://cdn.discordapp.com/attachments/694822669463584808/702896801317126204/2020-03-26_01.27.36.png"
+  },
+    {
+    "name": "コウモリ",
+    "hp_co": 2,
+    "dmg_co": 1.0,
+    "quote": "バサッバサッ...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656776943844327425/bat.png"
+  },
+  {
+    "name": "ファラオ",
+    "hp_co": 3,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775935080792064/farao_white.png"
+  },
+  {
+    "name": "ゴブリン",
+    "hp_co": 4,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/419788030648516618/668013441826422784/41_20200118174640.png"
+  },
+  {
+    "name": "アクマ",
+    "hp_co": 5,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775887739420672/akuma.png"
+  },
+  {
+    "name": "メイジ・エッグ",
+    "hp_co": 6,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/664095090192416778/1578402788580.png"
+  },
+  {
+    "name": "妖刀",
+    "hp_co": 7,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775973303222292/katana.png"
+  },
+  {
+    "name": "テナガ",
+    "hp_co": 8,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/664089944305696768/1575676127304.png"
+  },
+  {
+    "name": "アサシンボーイ",
+    "hp_co": 9,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/664097431671144458/2019-12-13_00.40.02.png"
+  },
+  {
+    "name": "タランチュラ",
+    "hp_co": 10,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775881766862869/tarantula.png"
+  },
+  {
+    "name": "アーリマン",
+    "hp_co": 11,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775886410088458/ahriman.png"
+  },
+  {
+    "name": "アシナガ",
+    "hp_co": 12,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/664089944804950056/1575675410968.png"
+  },
+  {
+    "name": "ワーム",
+    "hp_co": 13,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775929703432212/earth_worm.png"
+  },
+  {
+    "name": "モアイ",
+    "hp_co": 14,
+    "dmg_co": 1.0,
+    "quote": "バサッバサッ...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656776016215277578/moai.png"
+  },
+  {
+    "name": "悪魔の人形",
+    "hp_co": 15,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775919158951936/devildoll_bk.png"
+  },
+  {
+    "name": "スケルトン",
+    "hp_co": 16,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/664089944804950057/1575179264235.png"
+  },
+  {
+    "name": "悪魔のタネ",
+    "hp_co": 17,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656776082405720074/seed.png"
+  },
+  {
+    "name": "ヤドカリ",
+    "hp_co": 18,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775884954664984/yadokari.png"
+  },
+  {
+    "name": "オウム",
+    "hp_co": 19,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656776032719994881/oumu.png.png"
+  },
+  {
+    "name": "ゴースト",
+    "hp_co": 20,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775939224633372/ghost_white.png"
+  },
+  {
+    "name": "スカルヘッド",
+    "hp_co": 21,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656776069411635210/skull.png"
+  },
+  {
+    "name": "ポット",
+    "hp_co": 22,
+    "dmg_co": 1.0,
+    "quote": "バサッバサッ...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656776037509890068/pot.png"
+  },
+  {
+    "name": "一目鬼",
+    "hp_co": 23,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/664095583207948298/1572265867579.png"
+  },
+  {
+    "name": "クラブ",
+    "hp_co": 24,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656779375185887252/crab.png"
+  },
+  {
+    "name": "石の精霊",
+    "hp_co": 25,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775931754709012/el_stone.png"
+  },
+  {
+    "name": "マイマイ",
+    "hp_co": 26,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775980777734144/maimai.png"
+  },
+  {
+    "name": "マッドハンド",
+    "hp_co": 27,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775943523794944/hand.png"
+  },
+  {
+    "name": "エッグ・ウエスタン",
+    "hp_co": 28,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/664096127007719437/1574571606258.png"
+  },
+  {
+    "name": "オーガ",
+    "hp_co": 29,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656776029687250975/ogre.png"
+  },
+  {
+    "name": "リッチ(画像が小さいのは許して下さい)",
+    "hp_co": 30,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://media.discordapp.net/attachments/606342773913681930/656776041502867486/ricchi.png"
+  },
+  {
+    "name": "ボール",
+    "hp_co": 31,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775978592239617/machine_ball.png"
+  },
+  {
+    "name": "タンク",
+    "hp_co": 32,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775879011074049/tank.png"
+  },
+  {
+    "name": "ホビット",
+    "hp_co": 33,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775969083883530/hobit.png"
+  },
+  {
+    "name": "パンプキン",
+    "hp_co": 34,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775971441213451/kabocha.png"
+  },
+  {
+    "name": "ラフレシア",
+    "hp_co": 35,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656781048700469249/rafflesia.png"
+  },
+  {
+    "name": "一角小僧",
+    "hp_co": 36,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/664097339304181802/2019-12-13_00.23.58.png"
+  },
+  {
+    "name": "ノミ",
+    "hp_co": 37,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775937584529414/flea.png"
+  },
+  {
+    "name": "[のんきなMMOの鯖](<https://discord.gg/tpGuh5h>) の鯖主",
+    "hp_co": 38,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/529971317802532865/674191600116826112/75529964.png"
+  },
+  {
+    "name": "ゴースト・クラウド",
+    "hp_co": 39,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/669455848979955742/1579615147949.png"
+  },
+  {
+    "name": "ゴースト・フレア",
+    "hp_co": 40,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/669455891787022336/1579509801039.png"
+  },
+  {
+    "name": "ゴースト・レイン",
+    "hp_co": 41,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/669455970165850112/1579509053034.png"
+  },
+  {
+    "name": "ゴースト・シャドウ",
+    "hp_co": 42,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/669456059949383687/1579512391204.png"
+  },
+  {
+    "name": "ゴースト・ホーリー",
+    "hp_co": 43,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/669456166148898816/1579614337103.png"
+  },
+  {
+    "name": "ウッドアイ",
+    "hp_co": 44,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/694822669463584808/702911551081938954/2020-04-24_00.52.54.png"
+  },
+  {
+    "name": "ウルフマン",
+    "hp_co": 44,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/694822669463584808/702915290144571482/2020-04-24_01.14.09.png"
+  },
+  {
+    "name": "メイジ",
+    "hp_co": 44,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/694822669463584808/702921585408868392/2020-04-24_01.38.56.png"
+  },
+  {
+    "name": "スケルトン",
+    "hp_co": 44,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/694822669463584808/702925464100012152/2020-04-24_01.54.29.png"
+  },
+  {
+    "name": "アサシン",
+    "hp_co": 44,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/694822669463584808/703186366246158437/2020-04-24_19.10.48.png"
+  },
+  {
+    "name": "闇に包まれた鳥",
+    "hp_co": 44,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/594087902737334282/680770363537621023/232_20200221205354-01.jpeg"
+  },
+  {
+    "name": "キノコゴーレム",
+    "hp_co": 45,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/594087902737334282/680770364078555136/186_20200213213623.png"
+  }
+]
