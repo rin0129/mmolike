@@ -1,21 +1,15 @@
-# c = con.cursor()
-# c.execute("INSERT INTO get(author_id) VALUES(%s);", (author_id,))
-# con.commit()
-# c.close()
-# con.close()
-
 import random
 import psycopg2
 import math
 import json
 import os
+import psutil
 import sys
 import re
 import time
 import traceback
 import ast
 import datetime
-from discord.ext import tasks
 from datetime import datetime
 from xml.etree import ElementTree
 
@@ -24,6 +18,7 @@ from discord.ext import commands
 from discord import Embed, NotFound, Forbidden
 import requests
 import asyncio
+from discord.ext import tasks
 
 MONSTER_NUM = 50
 token = os.environ['DISCORD_BOT_TOKEN']
