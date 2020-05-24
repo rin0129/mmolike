@@ -63,20 +63,20 @@ async def on_ready():
     c.execute("select count(*) from player")
     print(c.fetchone()[0])
     print('------')
-    con = psycopg2.connect(os.environ.get("DATABASE_URL"))
-    c = con.cursor()
-    c.execute("SELECT channel_id, boss_level FROM channel_status ORDER BY boss_level DESC").fetchall()
-    con.commit()
-    channels = c.fetchall()
-    guilds = {}
-    for channel in channels:
-        c = bot.get_channel(channel[0])
-        if not c: continue
-        guild = c.guild
-        if not guild.id in guilds:
-            guilds[guild.id] = [guild.name, channel[1]]
-    print("{}".format("\n".join(
-        "{}      Lv{}".format(a[0], a[1]) for i, a in enumerate(guilds.values()))), )
+#     con = psycopg2.connect(os.environ.get("DATABASE_URL"))
+#     c = con.cursor()
+#     c.execute("SELECT channel_id, boss_level FROM channel_status ORDER BY boss_level DESC").fetchall()
+#     con.commit()
+#     channels = c.fetchall()
+#     guilds = {}
+#     for channel in channels:
+#         c = bot.get_channel(channel[0])
+#         if not c: continue
+#         guild = c.guild
+#         if not guild.id in guilds:
+#             guilds[guild.id] = [guild.name, channel[1]]
+#     print("{}".format("\n".join(
+#         "{}      Lv{}".format(a[0], a[1]) for i, a in enumerate(guilds.values()))), )
     print("------")
     kidou.remove("true")
     await bot.change_presence(activity=discord.Game(name="!!help ｜{}鯖".format(len(bot.guilds))))
