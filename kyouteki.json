@@ -1,0 +1,72 @@
+[
+    {
+    "name": "【強敵】クラーケン",
+    "hp_co": 5,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775977497526309/kraken.png"
+  },
+    {
+    "name": "【強敵】エッグ・ウォーカー",
+    "hp_co": 10,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/664103267583655958/1578404846729.png"
+  },
+    {
+    "name": "【強敵】スノーマン",
+    "hp_co": 15,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/664089945497141268/1575176400243.png"
+  },
+    {
+    "name": "【強敵！】極楽鳥",
+    "hp_co": 20,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656778603073110016/condor.png"
+  },
+    {
+    "name": "【強敵】インキュバス",
+    "hp_co": 25,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656775969683537931/incubus.png"
+  },
+    {
+    "name": "【強敵】アークデーモン",
+    "hp_co": 30,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656779517125459969/arc_demon.png"
+  },
+    {
+    "name": "【強敵】マグマ・ハンド",
+    "hp_co": 35,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/647056220620062731/664097195657658381/2019-12-09_16.39.27.png"
+  },
+    {
+    "name": "【強敵！】ワイバーン",
+    "hp_co": 40,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656780643837018112/wyvern.png"
+  },
+    {
+    "name": "【強敵】Tレックス",
+    "hp_co": 45,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/606342773913681930/656781114886848512/t-rex.png"
+  },
+  {
+    "name": "【強敵】光なんてない「無」",
+    "hp_co": 50,
+    "dmg_co": 1.0,
+    "quote": "...",
+    "img": "https://cdn.discordapp.com/attachments/594084323410313218/645265490293293059/45_20191116205708.png"
+  }
+]
