@@ -45,12 +45,13 @@ kidou.append("true")
 async def on_ready():
     con = psycopg2.connect(os.environ.get("DATABASE_URL"))
     c = con.cursor()
-    c.execute("SELECT user_id FROM ban_member ORDER BY user_id").fetchall()
+    c.execute("SELECT channel_id FROM ban_member ORDER BY channel").fetchall()
     con.commit()
     ans = c.fetchall()
-    for ban in ans:
-        ban_member.append(ban[0])
-    print(ban_member)
+    if ans:
+        for ban in ans:
+            ban_member.append(ban[0])
+        print(ban_member)
     # bot.load_extension("jishaku")
     print('Logged in as')
     print(bot.user.name)
@@ -218,7 +219,7 @@ async def ban(ctx, id=""):
         if kaitou.content == "ok":
             con = psycopg2.connect(os.environ.get("DATABASE_URL"))
             c = con.cursor()
-            c.execute(f"DELETE FROM ban_member WHERE user_id={id}")
+            c.execute(f"DELETE FROM ban_member WHERE channel={id}")
             ban_member.remove(int(id))
             conn.commit()
             await taiki.edit(embed=Embed(description=f"{bot.get_user(int(id))}さんをUNBANしました！"))
