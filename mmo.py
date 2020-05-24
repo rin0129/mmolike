@@ -124,31 +124,34 @@ async def on_message(message):
         if not message.author.id in all_commands_user or message.author.id in all_commands_channel:
             all_commands_user.append(message.author.id)
             all_commands_channel.append(message.channel.id)
-            con = psycopg2.connect(os.environ.get("DATABASE_URL"))
-            c = con.cursor()
-            c.execute("SELECT user_id FROM login ORDER BY user_id").fetchall()
-            con.commit()
-            login_user = c.fetchall()
-            for i in login_user:
-                if not i[0] in login_zumi:
-                    login_zumi.append(i[0])
-            if message.author.id in login_zumi:
-                await process_commands(message)
-                all_commands_channel.remove(message.channel.id)
-                all_commands_user.remove(message.author.id)
-                return
-            else:
-                if message.content == "!!login":
-                    await process_commands(message)
-                    all_commands_channel.remove(message.channel.id)
-                    all_commands_user.remove(message.author.id)
-                    return
-                else:
-                    embed = Embed(description=f"""{message.author.mention}さん、ログインしてください\n[コマンドは !!login です]""")
-                    await message.channel.send(embed=embed)
-                    all_commands_channel.remove(message.channel.id)
-                    all_commands_user.remove(message.author.id)
-                    return
+#             con = psycopg2.connect(os.environ.get("DATABASE_URL"))
+            await process_commands(message)
+            all_commands_channel.remove(message.channel.id)
+            all_commands_user.remove(message.author.id)
+#             c = con.cursor()
+#             c.execute("SELECT user_id FROM login ORDER BY user_id").fetchall()
+#             con.commit()
+#             login_user = c.fetchall()
+#             for i in login_user:
+#                 if not i[0] in login_zumi:
+#                     login_zumi.append(i[0])
+#             if message.author.id in login_zumi:
+#                 await process_commands(message)
+#                 all_commands_channel.remove(message.channel.id)
+#                 all_commands_user.remove(message.author.id)
+#                 return
+#             else:
+#                 if message.content == "!!login":
+#                     await process_commands(message)
+#                     all_commands_channel.remove(message.channel.id)
+#                     all_commands_user.remove(message.author.id)
+#                     return
+#                 else:
+#                     embed = Embed(description=f"""{message.author.mention}さん、ログインしてください\n[コマンドは !!login です]""")
+#                     await message.channel.send(embed=embed)
+#                     all_commands_channel.remove(message.channel.id)
+#                     all_commands_user.remove(message.author.id)
+#                     return
             # else:
             #     if message.content == "!!login":
             #         all_commands_channel.remove(message.channel.id)
