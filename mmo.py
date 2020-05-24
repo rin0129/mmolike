@@ -43,14 +43,14 @@ kidou.append("true")
 
 @bot.event
 async def on_ready():
-    con = psycopg2.connect(os.environ.get("DATABASE_URL"))
-    c = con.cursor()
-    c.execute("SELECT channel_id FROM ban_member ORDER BY channel_id").fetchall()
-    if not c.fetchall() == None:
-        for ban in ans:
-            ban_member.append(ban[0])
-        print(ban_member)
-    con.commit()
+#     con = psycopg2.connect(os.environ.get("DATABASE_URL"))
+#     c = con.cursor()
+#     c.execute("SELECT channel_id FROM ban_member ORDER BY channel_id").fetchall()
+#     if not c.fetchall() == None:
+#         for ban in ans:
+#             ban_member.append(ban[0])
+#         print(ban_member)
+#     con.commit()
     # bot.load_extension("jishaku")
     print('Logged in as')
     print(bot.user.name)
