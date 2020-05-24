@@ -46,8 +46,7 @@ async def on_ready():
     con = psycopg2.connect(os.environ.get("DATABASE_URL"))
     c = con.cursor()
     c.execute("SELECT channel_id FROM ban_member ORDER BY channel_id").fetchall()
-    ans = c.fetchall()
-    if not ans == None:
+    if not c.fetchall() == None:
         for ban in ans:
             ban_member.append(ban[0])
         print(ban_member)
