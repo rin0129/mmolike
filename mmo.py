@@ -83,7 +83,7 @@ async def on_ready():
     # await bot.change_presence(activity=discord.Game(name="敵を増やしてます ｜{}鯖".format(len(bot.guilds))))
     embed = discord.Embed(
         title="MMOが起動しました",
-        description=f"```\nMMOが参加しているサーバー: {len(bot.guilds)}鯖\nユーザ数：{len(set(bot.get_all_members()))}```\n\n```メモリ使用率 {mem.percent}% [16G]\nCPU使用率 {cpu}%```\n\n```player数{count[0]}```",
+        description=f"```\nMMOが参加しているサーバー: {len(bot.guilds)}鯖\nユーザ数：{len(set(bot.get_all_members()))}```\n\n```player数{count[0]}```",
         color=0x2ECC69
     )
     try:
