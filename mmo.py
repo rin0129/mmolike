@@ -3,7 +3,6 @@ import psycopg2
 import math
 import json
 import os
-import psutil
 import sys
 import re
 import time
