@@ -1,12 +1,3 @@
-aiohttp
-async-timeout
-certifi
-chardet
-discord
-discord.py[voice]
-multidic
+discord.py[voice] >= 1.2.5
 requests
-urllib3
-websockets
 psycopg2
-psycopg2-binary
