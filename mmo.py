@@ -22,6 +22,7 @@ import requests
 import asyncio
 
 MONSTER_NUM = 50
+token = os.environ['DISCORD_BOT_TOKEN']
 
 f = open('monsters.json', 'r', encoding="utf-8")
 monsters = json.load(f)
@@ -36,7 +37,7 @@ kyouteki = json.load(f)
 f = open('training.json', 'r', encoding="utf-8")
 training_set = json.load(f)
 conn = sqlite3.connect("mmo.db")
-bot = commands.Bot(command_prefix='!!', description='ただ倒して行くやつよ')
+bot = commands.Bot(command_prefix='m!', description='ただ倒して行くやつよ')
 bot.remove_command('help')
 kidou = []
 ban_member = []
@@ -2595,6 +2596,4 @@ async def reset_battle(ctx, channel_id, level_up=False):
     await bot.get_channel(661129255933050882).send(embed=embed)
 
 login_loop.start()
-f = open('setting.json', 'r', encoding="utf-8")
-setting = json.load(f)
-bot.run(setting['token'])
+bot.run(token)
