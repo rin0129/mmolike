@@ -1,1 +1,1 @@
-worker: python taoattack.py
+worker: python mmo.py
